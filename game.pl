@@ -3,14 +3,21 @@ welcome_champ :-
     write("Hey Champion!"), nl.
 
 % Generate a random number to guess | between two specified bounds, inclusive.
-generate_secret_number(Limit, Key) :-
+generate_random_number(Limit, Key) :-
     random_between(1, Limit, Key).
 
 start :-
     write("Input a guess limit: "),
     read(Limit),nl,
-    write("Guess a number between 1 to "),
-    write(Limit).
+    generate_random_number(Limit, NumToGuess),
+    write("Random number generated between 1 and "), write(Limit), write(" is "), write(NumToGuess), nl,
+    write("Guess a number: "),
+    read(UserGuess),
+    (
+        UserGuess =:= NumToGuess 
+        -> write("You got it!"),nl ; write("Wrong guess, try again."),nl
+    ).
+
 
 % How to run program
 % 1. Install SWI-Prolog
