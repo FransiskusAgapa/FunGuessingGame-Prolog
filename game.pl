@@ -7,17 +7,23 @@ generate_random_number(Limit, Key) :-
     random_between(1, Limit, Key).
 
 start :-
-    write("Input a guess limit: "),
-    read(Limit),nl,
-    generate_random_number(Limit, NumToGuess),
-    write("Random number generated between 1 and "), write(Limit), write(" is "), write(NumToGuess), nl,
-    write("Guess a number: "),
-    read(UserGuess),
-    (
-        UserGuess =:= NumToGuess 
-        -> write("You got it!"),nl ; write("Wrong guess, try again."),nl
-    ).
+    write("Welcome to the Guessing Game!"), nl,nl,
+    write("Please enter the maximum number for the guessing range: "), % personalized prompt
+    read(Limit), nl, % read user input
+    generate_random_number(Limit, NumToGuess), % generate the random number
+    write("Alright! I've picked a secret number between 1 and "), 
+    write(Limit), write(". Can you guess what it is?"), nl, % engage the user
+    guess(NumToGuess). % Start the guessing loop
 
+guess(NumToGuess) :-
+    nl, write("Take a shot! Enter your guess"), % engaging prompt for a guess
+    read(UserGuess), % read the user's guess
+    (
+        UserGuess =:= NumToGuess -> 
+        write("Amazing! You got it right! Well done!"), nl; % celebrate the correct guess
+        nl, write("Oops! That's not it. Don't give up, try again!"), nl, % encourage the user
+        guess(NumToGuess) % recursive call for another attempt
+    ).
 
 % How to run program
 % 1. Install SWI-Prolog
