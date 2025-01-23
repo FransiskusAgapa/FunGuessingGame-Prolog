@@ -47,5 +47,3 @@ Make a step-by-step outline of how the game plays out
 - Learned how different types are instantiated in Prolog.  
 - Learned how to define a rule  
 - Learned how to `read` and `write`
-
-
