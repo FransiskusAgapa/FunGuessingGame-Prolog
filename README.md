@@ -19,8 +19,7 @@ It's simple!
 * type in `start` to start the game, then enjoy the game
 
 ## How to play (screenshots of the gameplay)
-
-   ### A (YouTube) video showing the game running and explaining how it goes (optional).
+https://github.com/user-attachments/assets/77bb1e0c-2431-4d11-8592-f27a1ddbbc6d
 
 ## Data types
 TBA
